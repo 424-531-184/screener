@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Stock Screener App</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+  <h1>Stock Screener App</h1>
+  <form>
+    <label for="symbol">Symbol:</label>
+    <input type="text" id="symbol" name="symbol"><br><br>
+    
+    <label for="price">Price:</label>
+    <input type="number" id="price" name="price"><br><br>
+    
+    <label for="volume">Volume:</label>
+    <input type="number" id="volume" name="volume"><br><br>
+    
+    <input type="submit" value="Filter">
+  </form>
+  
+  <div id="results">
+    <!-- Results will be displayed here -->
+  </div>
+  
+  <script src="app.js"></script>
+</body>
+</html>
+h1 {
+  text-align: center;
+  margin-top: 50px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+}
+
+label {
+  font-size: 20px;
+}
+
+input[type="text"], input[type="number"] {
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+input[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+#results {
+  margin-top: 50px;
+}
+const form = document.querySelector('form');
+const symbolInput = document.getElementById('symbol');
+const priceInput = document.getElementById('price');
+const volumeInput = document.getElementById('volume');
+const resultsDiv = document.getElementById('results');
+
+form.addEventListener('submit', function(event) {
+  event.preventDefault();
+  
+  const symbol = symbolInput.value;
+  const price = priceInput.value;
+  const volume = volumeInput.value;
+  
+  // Here you would use AJAX or fetch to send the filter criteria to the server and get the results
+  
+  // For the sake of simplicity, let's just display the filter criteria
+  resultsDiv.innerHTML = `<p>Filter criteria: Symbol: ${symbol}, Price: ${price}, Volume: ${volume}</p>`;
+});
